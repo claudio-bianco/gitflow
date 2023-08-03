@@ -32,14 +32,12 @@ pipeline {
         stage("Determine new version") {
             steps {
                 script {
-                commit = sh (returnStdout: true, script: '''echo hi
-                echo bye | grep -o "e"
-                date
-                echo lol''').split()
-            
-            
-                echo "${commit[-1]} "
-                }                    
+                   GIT_COMMIT_EMAIL = sh (
+                        script: 'git --no-pager show -s --format=\'%ae\'',
+                        returnStdout: true
+                    ).trim()
+                    echo "Git committer email: ${GIT_COMMIT_EMAIL}"
+                }                 
             }
         }        
 /*         
