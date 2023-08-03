@@ -37,7 +37,7 @@ pipeline {
                         returnStdout: true
                     ).trim()
                     echo "Git committer email: ${GIT_COMMIT_EMAIL}"
-                    GIT_TAG = sh (script: 'git tag --contains', returnStdout: true).trim()
+                    GIT_TAG = sh (script: 'git tag --sort version:refname | tail -1', returnStdout: true).trim()
                     echo "Git tag: ${GIT_TAG}"
                 }                 
             }
