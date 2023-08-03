@@ -14,10 +14,10 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:        
-    - name: Trigger gitflow job
-      uses: toptal/jenkins-job-trigger-action@master
+    - name: trigger single Job
+      uses: appleboy/jenkins-action@master
       with:
-        jenkins_url: "http://8.218.12.224:8080/"
-        jenkins_user: "claudiobianco"
-        jenkins_token: ${{ secrets.CMB }}
-        job_name: "gitflow"   
+        url: "http://8.218.12.224:8080/"
+        user: "claudiobianco"
+        token: ${{ secrets.CMB }}
+        job: "gitflow"        
