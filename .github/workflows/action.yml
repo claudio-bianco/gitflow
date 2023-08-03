@@ -13,13 +13,11 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    steps:
-    - name: Trigger jenkins job
-      uses: jabbukka/jenkins-trigger@main
+    steps:        
+    - name: Trigger your-awesome-job-name job
+      uses: toptal/jenkins-job-trigger-action@master
       with:
-        url: "http://8.218.12.224:8080/"
-        job_name: "gitflow"
-        user_name: "claudio-bianco"
-        api_token: ${{ secrets.my-github }}
-        wait: "true"
-        timeout: "1000"
+        jenkins_url: "http://8.218.12.224:8080/"
+        jenkins_user: "claudio-bianco"
+        jenkins_token: ${{ secrets.CMB }}
+        job_name: "gitflow"   
