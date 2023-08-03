@@ -31,6 +31,7 @@ pipeline {
         }
         stage("Determine new version") {
             steps {
+                script {
                 commit = sh (returnStdout: true, script: '''echo hi
                 echo bye | grep -o "e"
                 date
@@ -38,6 +39,7 @@ pipeline {
             
             
                 echo "${commit[-1]} "
+                }                    
             }
         }        
 /*         
