@@ -14,7 +14,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:        
-    - name: Trigger your-awesome-job-name job
+    - name: Trigger gitflow job
       uses: toptal/jenkins-job-trigger-action@master
       with:
         jenkins_url: "http://8.218.12.224:8080/"
