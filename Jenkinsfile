@@ -28,27 +28,11 @@ pipeline {
                   aws --version
                 '''
             }
-        }
-        stage('release') {
-           steps {
-                script {
-                      def scmVars = checkout([
-                        $class: 'GitSCM'
-                      ]);
-                
-                      echo "scmVars.GIT_COMMIT"
-                      echo "${scmVars.GIT_COMMIT}"
-                
-                      env.GIT_COMMIT = scmVars.GIT_COMMIT
-                      echo "env.GIT_COMMIT"
-                      echo "${env.GIT_COMMIT}"
-                    }
-           }
-        }        
+        }      
         stage('Teste') {           
             steps {                
                 script {
-                    MYTAG = sh(returnStdout: true, script: 'git tag --sort version:refname | tail -1').trim()
+                    MYTAG = sh (returnStdout: true, script: 'git tag --sort version:refname | tail -1').trim()
                     echo ${MYTAG}
                 }
             }
