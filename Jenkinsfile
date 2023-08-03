@@ -30,11 +30,10 @@ pipeline {
         }
         stage('Teste') {           
             steps {                
-                sh '''
-                    git rev-parse --abbrev-ref HEAD > GIT_BRANCH
-                    git_branch = readFile('GIT_BRANCH').trim()
-                    echo git_branch
-                   '''
+                script {
+                    mytag = sh(returnStdout: true, script: "git tag --contains").trim()
+                    echo ${mytag}
+                }
             }
         }        
 /*      
