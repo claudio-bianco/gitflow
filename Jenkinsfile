@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_ID = credentials('DOCKER_ID')
-        DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
+        //DOCKER_ID = credentials('DOCKER_ID')
+        //DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
         AWS_DEFAULT_REGION="us-east-1"
-        THE_BUTLER_SAYS_SO=credentials('cmb-aws-cred')
+        //THE_BUTLER_SAYS_SO=credentials('cmb-aws-cred')
         BUILD_ID = "${env.BUILD_ID}"
         
         PARAMETERS_DEV_FILE = "param.json"
@@ -24,8 +24,7 @@ pipeline {
             steps {
                 echo 'AWS command..'
                 sh '''
-                  aws --version
-                  aws ec2 describe-instances
+                  aws --version                  
                 '''
             }
         }
