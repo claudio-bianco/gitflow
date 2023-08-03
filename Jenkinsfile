@@ -26,11 +26,6 @@ pipeline {
                 sh '''
                   aws --version                  
                 '''
-                sh '''
-                    git rev-parse --abbrev-ref HEAD > GIT_BRANCH'
-                    git_branch = readFile('GIT_BRANCH').trim()
-                    echo git_branch
-                '''
             }
         }
         stage('Teste') {           
