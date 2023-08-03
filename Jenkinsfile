@@ -26,14 +26,22 @@ pipeline {
                 sh '''
                   aws --version                  
                 '''
-                sh '//...
+                sh '''
                     git rev-parse --abbrev-ref HEAD > GIT_BRANCH'
                     git_branch = readFile('GIT_BRANCH').trim()
                     echo git_branch
-                    //...
-                   '
+                '''
             }
         }
+        stage('Teste') {           
+            steps {                
+                script {
+                    echo 'Teste..'
+                    def BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
+                    echo ${BRANCH}
+                }
+            }
+        }        
 /*      
         stage ('push artifact') {
             steps {
