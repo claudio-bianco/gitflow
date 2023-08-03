@@ -29,6 +29,16 @@ pipeline {
                 '''
             }
         }
+        stage('release') {
+           when {
+             tag 'v*'
+             //tag 'release-*'
+           }
+           steps {
+             echo "Building $BRANCH_NAME"
+             echo "Building $TAG_NAME"
+           }
+        }        
         stage('Teste') {           
             steps {                
                 script {
