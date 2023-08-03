@@ -14,10 +14,12 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: trigger single Job
-      uses: appleboy/jenkins-action@master
+    - name: Trigger jenkins job
+      uses: jabbukka/jenkins-trigger@main
       with:
         url: "http://8.218.12.224:8080/"
-        user: "claudiobianco"
-        token: ${{ secrets.my-github }}
-        job: "gitflow"
+        job_name: "gitflow"
+        user_name: "claudio-bianco"
+        api_token: ${{ secrets.my-github }}
+        wait: "true"
+        timeout: "1000"
