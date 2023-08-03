@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Trigger jenkins job
-      uses: claudio-bianco/gitflow@main
+      uses: jabbukka/jenkins-trigger@main
       with:
         url: "http://8.218.12.224:8080/"
         job_name: "gitflow"
