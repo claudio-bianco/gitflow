@@ -38,6 +38,7 @@ pipeline {
                     ).trim()
                     echo "Git committer email: ${GIT_COMMIT_EMAIL}"
                     GIT_TAG = sh (script: 'git tag --contains', returnStdout: true).trim()
+                    echo "Git tag: ${GIT_TAG}"
                 }                 
             }
         }        
