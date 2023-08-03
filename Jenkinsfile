@@ -32,8 +32,8 @@ pipeline {
         stage('Teste') {           
             steps {                
                 script {
-                    mytag = sh(returnStdout: true, script: "git tag --contains").trim()
-                    echo ${mytag}
+                    MYTAG = sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
+                    echo ${MYTAG}
                 }
             }
         }        
