@@ -32,7 +32,7 @@ pipeline {
             steps {                
                 script {
                     echo 'Teste..'
-                    BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
+                    BRANCH = sh (returnStdout: true, script: "git rev-parse --abbrev-ref HEAD").trim()
                     echo ${BRANCH}
                 }
             }
