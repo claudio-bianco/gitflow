@@ -31,12 +31,13 @@ pipeline {
         }
         stage("Determine new version") {
             steps {
-                script {
-
-                    env.DEPLOY_COMMIT_HASH = sh(returnStdout: true, script: "git rev-parse HEAD | cut -c1-7").trim()
-                    env.DEPLOY_BUILD_DATE = sh(returnStdout: true, script: "date -u +'%Y-%m-%dT%H:%M:%SZ'").trim()
-                    echo ${env.DEPLOY_BUILD_DATE}
-                }
+                def commit = sh (returnStdout: true, script: '''echo hi
+                echo bye | grep -o "e"
+                date
+                echo lol''').split()
+            
+            
+                echo "${commit[-1]} "
             }
         }        
 /*         
