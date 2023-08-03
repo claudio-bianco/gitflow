@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo 'AWS command..'
                 sh '''
-                  aws --version                  "
+                  aws --version
                 '''
             }
         }
