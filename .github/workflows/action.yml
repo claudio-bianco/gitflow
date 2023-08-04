@@ -16,12 +16,11 @@ jobs:
     steps:
     - name: Test Secret
       run: echo "Secret ${{ secrets.CMB }}"
-    
-    - name: Trigger gitflow job
-      uses: toptal/jenkins-job-trigger-action@master
+
+    - name: trigger single Job
+      uses: appleboy/jenkins-action@master
       with:
-        jenkins_url: "http://8.218.12.224:8080/"
-        jenkins_user: "claudiobianco"
-        jenkins_token: ${{ secrets.CMB }}
-        proxy: ${{ secrets.CMB }}
-        job_name: "gitflow"
+        url: "http://8.218.12.224:8080/"
+        user: "claudiobianco"
+        token: ${{ secrets.CMB }}
+        job: "gitflow"
