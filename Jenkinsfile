@@ -41,6 +41,16 @@ pipeline {
                     echo "Git tag: ${GIT_TAG}"
                 }                 
             }
+        }
+        stage('Show Files') {
+            environment {
+              MY_FILES = sh(script: 'cd .github/workflows && ls -l', returnStdout: true)
+            }
+            steps {
+              sh '''
+                echo "$MY_FILES"
+              '''
+            }
         }        
 /*         
         stage('Teste') {           
