@@ -28,7 +28,7 @@ jobs:
         api_token: ${{ secrets.CMB }}
         parameter: |
           {
-            "param_1": "value_1",
+            "param_1": "maravilha",
             "param_2": "value_2"
           }        
         wait: "true"
