@@ -19,9 +19,9 @@ jobs:
     - name: Test Secret
       run: echo "Secret ${{ secrets.CMB }}"
 
-    - name: Use Secret
-      env: 
-        CMB: ${{ secrets.CMB }}
+    - run: node -e "console.log(process.env.CMB)"
+      env:
+        CMB: ${{ secrets.CMB }}        
 
     - name: trigger single Job
       uses: appleboy/jenkins-action@master

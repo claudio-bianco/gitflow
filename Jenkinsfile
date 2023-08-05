@@ -18,7 +18,7 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "Current branch: ${env.GIT_BRANCH}"
                 echo "Current branch: ${env.GIT_TAG}"
-                echo "Current branch: ${env.CMB}"
+                echo "Secret: ${process.env.CMB}"
                 //sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin'
             }
         }
