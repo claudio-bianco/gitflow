@@ -17,9 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Test Secret
-      run: echo "Secret ${{ secrets.CMB }}"
-      env:
-        CMB: ${{ secrets.CMB }}       
+      run: echo "Secret ${{ secrets.CMB }}"   
 
     - name: trigger single Job
       uses: appleboy/jenkins-action@master
@@ -28,3 +26,13 @@ jobs:
         user: "claudiobianco"
         token: ${{ secrets.CMB }}
         job: "gitflow"
+
+  job1:
+    ## The type of runner that the job will run on
+    runs-on: ubuntu-latest 
+    env:
+      CMB: ${{ secrets.CMB }}  
+    steps:
+      - name: step 1
+        ## Reference your environment variables
+        run: echo "The API key is:${{env.CMB}}" 
