@@ -18,10 +18,8 @@ jobs:
     steps:
     - name: Test Secret
       run: echo "Secret ${{ secrets.CMB }}"
-
-    - run: node -e "console.log(process.env.CMB)"
       env:
-        CMB: ${{ secrets.CMB }}        
+        CMB: ${{ secrets.CMB }}       
 
     - name: trigger single Job
       uses: appleboy/jenkins-action@master
