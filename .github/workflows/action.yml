@@ -17,21 +17,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Test Secret
-      run: echo "Secret ${{ secrets.CMB }}"
+      run: echo "Secret ${{ secrets.CMB }}"   
 
-    - name: Trigger single job
-      uses: toptal/jenkins-job-trigger-action@master
+    - name: Trigger jenkins job
+      uses: jabbukka/jenkins-trigger@main
       with:
-        jenkins_url: "http://8.218.12.224:8080/"
-        jenkins_user: "claudiobianco"
-        jenkins_token: ${{ secrets.CMB }}
+        url: "http://8.218.12.224:8080/"
         job_name: "gitflow"
-        job_params: |
-          {
-            "param_1": "value_1",
-            "param_2": "value_2"
-          }
-        job_timeout: "3600" # Default 30 sec. (optional)        
+        user_name: "claudiobianco"
+        api_token: ${{ secrets.CMB }}
+        wait: "true"
+        timeout: "1000"        
 
     - name: 'Create env file'
       run: |
