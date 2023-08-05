@@ -2,6 +2,8 @@ pipeline {
     agent any
     parameters {
             string(name: 'param_1', defaultValue: 'Jenkins', description: 'username')
+
+            string(name: 'param_2', defaultValue: 'Jenkins', description: 'username')
     
             text(name: 'desc', defaultValue: '', description: 'description about the user. ')
     
@@ -28,7 +30,8 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "Current branch: ${env.GIT_BRANCH}"
                 echo "Current branch: ${env.GIT_TAG}"
-                echo "Secret: ${params.param_1} ${env.param_1}"
+                echo "Param1: ${params.param_1} ${env.param_1}"
+                echo "Param2: ${params.param_2} ${env.param_2}"
                 //sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin'
             }
         }
