@@ -1,6 +1,16 @@
 pipeline {
     agent any
-
+    parameters {
+            string(name: 'param_1', defaultValue: 'Jenkins', description: 'username')
+    
+            text(name: 'desc', defaultValue: '', description: 'description about the user. ')
+    
+            booleanParam(name: 'toggle', defaultValue: true, description: 'Enable/Disable')
+    
+            choice(name: 'choice', choices: [1,2,3,4,5], description: 'choose a value')
+    
+            password(name: 'passwd', defaultValue: 'secret', description: 'provide password')
+        }
     environment {
         //DOCKER_ID = credentials('DOCKER_ID')
         //DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
