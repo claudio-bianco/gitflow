@@ -26,6 +26,12 @@ jobs:
         jenkins_user: "claudiobianco"
         jenkins_token: ${{ secrets.CMB }}
         job_name: "gitflow"
+        job_params: |
+          {
+            "param_1": "value_1",
+            "param_2": "value_2"
+          }
+        job_timeout: "3600" # Default 30 sec. (optional)        
 
     - name: 'Create env file'
       run: |
