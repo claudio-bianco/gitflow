@@ -28,7 +28,7 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "Current branch: ${env.GIT_BRANCH}"
                 echo "Current branch: ${env.GIT_TAG}"
-                echo "Secret: ${params.param_1}"
+                echo "Secret: ${parameter.param_1}"
                 //sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin'
             }
         }
