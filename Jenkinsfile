@@ -32,6 +32,7 @@ pipeline {
                 echo "Current branch: ${env.GIT_TAG}"
                 echo "Param1: ${params.param_1} ${env.param_1}"
                 echo "Param2: ${params.param_2} ${env.param_2}"
+                echo "Param2: ${params.param_2} ${env.param_2}"
                 //sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin'
             }
         }
