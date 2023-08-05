@@ -17,15 +17,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Test Secret
-      run: echo "Secret ${{ secrets.CMB }}"   
+      run: echo "Secret ${{ secrets.CMB }}"
 
-    - name: trigger single Job
-      uses: appleboy/jenkins-action@master
+    - name: Trigger single job
+      uses: toptal/jenkins-job-trigger-action@master
       with:
-        url: "http://8.218.12.224:8080/"
-        user: "claudiobianco"
-        token: ${{ secrets.CMB }}
-        job: "gitflow"
+        jenkins_url: "http://8.218.12.224:8080/"
+        jenkins_user: "claudiobianco"
+        jenkins_token: ${{ secrets.CMB }}
+        job_name: "gitflow"
 
     - name: 'Create env file'
       run: |
