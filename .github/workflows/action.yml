@@ -20,7 +20,7 @@ jobs:
       run: echo "Secret ${{ secrets.CMB }}"
 
     - name: Trigger single job
-      uses: toptal/jenkins-job-trigger-action@main
+      uses: toptal/jenkins-job-trigger-action@master
       with:
         jenkins_url: "http://8.218.12.224:8080/"
         jenkins_user: "claudiobianco"
