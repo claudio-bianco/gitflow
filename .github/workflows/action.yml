@@ -12,7 +12,6 @@ on:
 
 env:
   MYCMB: ${{ secrets.CMB }}
-  MYSENHA: $(echo ${MYCMB} | base64)
   MYHORA: ${{ vars.HORA }}
   BUILD_CONFIGURATION: Release
 jobs:
@@ -39,9 +38,15 @@ jobs:
         wait: "true"
         timeout: "1000"        
 
-    - name: 'Create env file'
+    - name: 'My secrets'
       run: |
         echo "${{ secrets.CMB }}" > .env
         echo "MY_PASS (base64) = $(echo ${MYCMB} | base64)"
-        echo "MY_PASS (base64) = ${MYSENHA}"
         echo "Secret $MYHORA"
+
+    - name: 'Create env file'
+      run: |
+        touch .env
+        echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+        echo API_KEY=${{ secrets.CMB }} >> .env
+        cat .env
