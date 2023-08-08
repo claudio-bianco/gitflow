@@ -12,6 +12,7 @@ on:
 
 env:
   MYCMB: ${{ secrets.CMB }}
+  MYSENHA: ${{ secrets.SENHA }}
   BUILD_CONFIGURATION: Release
 jobs:
 
@@ -41,3 +42,4 @@ jobs:
       run: |
         echo "${{ secrets.CMB }}" > .env
         echo "MY_PASS (base64) = $(echo ${MYCMB} | base64)"
+        echo "MY_SENHA (base64) = $(echo ${MYSENHA} | base64)"
