@@ -33,6 +33,7 @@ jobs:
       run: |
         touch .env
         echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
-        echo API_KEY=$(echo ${MYCMB} | base64) >> $GITHUB_ENV
+        echo "API_KEY=$(echo ${MYCMB} | base64)" >> $GITHUB_ENV
         cat .env
         echo $API_KEY
+        echo $API_KEY | base64 -d
