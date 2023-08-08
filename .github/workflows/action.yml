@@ -12,7 +12,7 @@ on:
 
 env:
   MYCMB: ${{ secrets.CMB }}
-  MYSENHA: ${{ secrets.CMB }} | base64
+  MYSENHA: $(echo ${MYCMB} | base64)
   MYHORA: ${{ vars.HORA }}
   BUILD_CONFIGURATION: Release
 jobs:
