@@ -32,12 +32,9 @@ jobs:
     - name: 'Create env file'
       run: |
         touch .env
-        echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
-        echo "API_KEY=$(echo ${MYCMB} | base64)" >> .env
-        cat .env
-        echo $API_KEY
-        echo $API_KEY | base64 -d
-    - uses: cardinalby/export-env-action@v2
-      with:
-        expand: 'true'
-        envFile: '.env'
+        echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> $GITHUB_ENV
+        echo "API_KEY=$(echo ${MYCMB} | base64)" >> $GITHUB_ENV
+
+    - name: 'Using the previously defined environment variable'
+      run: |
+        echo ${{ env.API_KEY }}
