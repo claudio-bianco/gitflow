@@ -39,5 +39,5 @@ jobs:
         echo $API_KEY | base64 -d
     - uses: cardinalby/export-env-action@v2
       with:
-        mask: true
+        expand: 'true'
         envFile: '.env'
