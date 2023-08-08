@@ -10,6 +10,8 @@ on:
 
   workflow_dispatch:
 
+env:
+  MYCMB: ${{ secrets.CMB }}
 jobs:
 
   build:
@@ -17,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Test Secret
-      run: echo "Secret ${{ secrets.CMB }}"   
+      run: echo "Secret $MYCMB"
 
     - name: Trigger jenkins job
       uses: jabbukka/jenkins-trigger@main
