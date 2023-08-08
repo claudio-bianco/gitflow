@@ -35,4 +35,4 @@ jobs:
         echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
         echo API_KEY=$(echo ${MYCMB} | base64) >> .env
         cat .env
-        echo env.API_KEY | base64 -d
+        echo ${API_KEY} | base64 -d
