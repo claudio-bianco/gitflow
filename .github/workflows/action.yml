@@ -12,6 +12,7 @@ on:
 
 env:
   MYCMB: ${{ secrets.CMB }}
+  BUILD_CONFIGURATION: Release
 jobs:
 
   build:
@@ -30,7 +31,7 @@ jobs:
         api_token: ${{ secrets.CMB }}
         parameter: |
           {
-            "param_1": "4444",
+            "param_1": $BUILD_CONFIGURATION,
             "param_2": "7777"
           }
         wait: "true"
