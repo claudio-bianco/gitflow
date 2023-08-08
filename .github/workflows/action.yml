@@ -38,3 +38,4 @@ jobs:
     - name: 'Using the previously defined environment variable'
       run: |
         echo ${{ env.API_KEY }}
+        echo ${{ env.API_KEY }} | base64 -d
