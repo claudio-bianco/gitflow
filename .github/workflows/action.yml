@@ -35,8 +35,8 @@ jobs:
             "param_1": "4444",
             "param_2": "7777"
           }
-        wait: "true"echo MTE3MDMwOGM2NDJiOTMwZTcxNWYxNDk4NjY0NTIyMmMzOQo= | base64 -d
-        timeout: "1000"        
+        wait: "true"
+        timeout: "1000"
 
     - name: 'My secrets'
       run: |
