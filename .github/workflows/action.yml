@@ -30,9 +30,9 @@ jobs:
         api_token: ${{ secrets.CMB }}
         parameter: |
           {
-            "param_1": $MYCMB,
+            "param_1": "4444",
             "param_2": "7777"
-          }        
+          }
         wait: "true"
         timeout: "1000"        
 
