@@ -40,4 +40,4 @@ jobs:
     - name: 'Create env file'
       run: |
         echo "${{ secrets.CMB }}" > .env
-        echo "${{ secrets.CMB }}" | base64 --decode
+        echo ${{ secrets.CMB }} | base64 --decode
