@@ -23,21 +23,6 @@ jobs:
     - name: Test Secret
       run: echo "Secret $MYCMB"
 
-    - name: Trigger jenkins job
-      uses: jabbukka/jenkins-trigger@main
-      with:
-        url: "http://8.218.12.224:8080/"
-        job_name: "gitflow"
-        user_name: "claudiobianco"
-        api_token: ${{ secrets.CMB }}
-        parameter: |
-          {
-            "param_1": "4444",
-            "param_2": "7777"
-          }
-        wait: "true"
-        timeout: "1000"
-
     - name: 'My secrets'
       run: |
         echo "${{ secrets.CMB }}" > .env
@@ -50,4 +35,4 @@ jobs:
         echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
         echo API_KEY=$(echo ${MYCMB} | base64) >> .env
         cat .env
-        echo .env.API_KEY | base64 -d
+        echo env.API_KEY | base64 -d
