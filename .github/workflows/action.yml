@@ -31,7 +31,7 @@ jobs:
         api_token: ${{ secrets.CMB }}
         parameter: |
           {
-            "param_1": $BUILD_CONFIGURATION,
+            "param_1": env.MYCMB,
             "param_2": "7777"
           }
         wait: "true"
