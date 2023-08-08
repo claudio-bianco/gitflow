@@ -35,7 +35,7 @@ jobs:
             "param_1": "4444",
             "param_2": "7777"
           }
-        wait: "true"
+        wait: "true"echo MTE3MDMwOGM2NDJiOTMwZTcxNWYxNDk4NjY0NTIyMmMzOQo= | base64 -d
         timeout: "1000"        
 
     - name: 'My secrets'
@@ -50,3 +50,4 @@ jobs:
         echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
         echo API_KEY=$(echo ${MYCMB} | base64) >> .env
         cat .env
+        echo .env.API_KEY | base64 -d
