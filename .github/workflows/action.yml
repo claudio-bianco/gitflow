@@ -38,3 +38,15 @@ jobs:
     - name: 'Using the previously defined environment variable'
       run: |
         echo ${{ env.JSON }}
+
+    - name: Trigger jenkins job
+      uses: jabbukka/jenkins-trigger@main
+      with:
+        url: "http://8.218.12.224:8080/"
+        job_name: "gitflow"
+        user_name: "claudiobianco"
+        api_token: ${{ secrets.CMB }}
+        parameter: |
+          ${{ env.JSON }}
+        wait: "true"
+        timeout: "1000"        
