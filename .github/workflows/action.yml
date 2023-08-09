@@ -33,10 +33,6 @@ jobs:
       run: |
         echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> $GITHUB_ENV
         echo "API_KEY=$(echo ${MYCMB} | base64)" >> $GITHUB_ENV
-        echo A="{" >> $GITHUB_ENV
-        echo B='"param_1":"' >> $GITHUB_ENV
-        echo C=$(echo ${MYCMB} | base64) >> $GITHUB_ENV
-        echo D='"}' >> $GITHUB_ENV
         echo JSON='{ "param_1":"' $(echo ${MYCMB} | base64) '" }' >> $GITHUB_ENV
 
     - name: 'Using the previously defined environment variable'
