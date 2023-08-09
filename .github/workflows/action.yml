@@ -25,9 +25,9 @@ jobs:
 
     - name: 'My secrets'
       run: |
-        echo "${{ secrets.CMB }}" > .env
-        echo "MY_PASS (base64) = $(echo ${MYCMB} | base64)"
+        echo "MY_PASS= $(echo ${MYCMB} | base64)" >> .env
         echo "Secret $MYHORA"
+        echo ${{ env.MY_PASS }}
 
     - name: 'Create env file'
       run: |
@@ -37,7 +37,7 @@ jobs:
 
     - name: 'Using the previously defined environment variable'
       run: |
-        echo ${{ env.JSON }}        
+        echo ${{ env.JSON }}
 
     - name: Trigger jenkins job
       uses: jabbukka/jenkins-trigger@main
