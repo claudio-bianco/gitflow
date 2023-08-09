@@ -23,11 +23,9 @@ jobs:
     - name: Test Secret
       run: echo "Secret $MYCMB"
 
-    - name: 'My secrets'
+    - name: 'My vars'
       run: |
-        echo "MY_PASS= $(echo ${MYCMB} | base64)" >> .env
         echo "Secret $MYHORA"
-        echo ${{ env.MY_PASS }}
 
     - name: 'Create env file'
       run: |
