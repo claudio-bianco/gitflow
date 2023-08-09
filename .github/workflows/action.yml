@@ -37,7 +37,7 @@ jobs:
         echo B='"param_1":"' >> $GITHUB_ENV
         echo C=$(echo ${MYCMB} | base64) >> $GITHUB_ENV
         echo D='"}' >> $GITHUB_ENV
-        echo JSON=$(echo  ${{ env.A }}) $(echo ${{ env.B }}) $(echo ${{ env.C }}) $(echo ${{ env.D }}) >> $GITHUB_ENV
+        echo "JSON=${{ env.A }} ${{ env.B }} ${{ env.C }} ${{ env.D }}" >> $GITHUB_ENV
 
     - name: 'Using the previously defined environment variable'
       run: |
